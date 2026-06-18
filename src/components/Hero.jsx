@@ -1,111 +1,87 @@
 import { useState, useEffect } from 'react'
 import './Hero.css'
 
-const slides = [
-  {
-    eyebrow: 'Silicon Engineering',
-    titleLead: 'Chip Design',
-    titleAccent: 'Services',
-    subtitle:
-      'End-to-end ASIC & VLSI design — from specification and RTL to verification and first-time-right silicon.',
-  },
-  {
-    eyebrow: 'Software Solutions',
-    titleLead: 'Software',
-    titleAccent: 'Solutions',
-    subtitle:
-      'Web, mobile, cloud and embedded software engineered to scale — custom products built around your business.',
-  },
-  {
-    eyebrow: 'Digital Marketing',
-    titleLead: 'Digital',
-    titleAccent: 'Marketing',
-    subtitle:
-      'SEO, performance campaigns, social and branding that turn attention into measurable growth.',
-  },
-]
+const words = ['Chip Design', 'Software', 'Digital Marketing']
 
 const Hero = () => {
-  const [active, setActive] = useState(0)
+  const [display, setDisplay] = useState('')
+  const [wordIdx, setWordIdx] = useState(0)
+  const [deleting, setDeleting] = useState(false)
 
+  // typewriter loop: type → hold → delete → next
   useEffect(() => {
-    const id = setInterval(() => setActive((i) => (i + 1) % slides.length), 5000)
-    return () => clearInterval(id)
-  }, [])
+    const current = words[wordIdx]
+    let delay = deleting ? 45 : 95
+    if (!deleting && display === current) delay = 1500
+    if (deleting && display === '') delay = 350
 
-  const scrollToSection = (sectionId) => {
-    document.getElementById(sectionId)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
+    const t = setTimeout(() => {
+      if (!deleting && display === current) {
+        setDeleting(true)
+      } else if (deleting && display === '') {
+        setDeleting(false)
+        setWordIdx((i) => (i + 1) % words.length)
+      } else {
+        const next = deleting
+          ? current.slice(0, display.length - 1)
+          : current.slice(0, display.length + 1)
+        setDisplay(next)
+      }
+    }, delay)
+    return () => clearTimeout(t)
+  }, [display, deleting, wordIdx])
 
-  const slide = slides[active]
+  const scrollToSection = (id) =>
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
 
   return (
-    <section id="home" className="hero grid-bg">
-      <div className="hero-glow hero-glow-1" />
-      <div className="hero-glow hero-glow-2" />
+    <section id="home" className="hero">
+      <div className="hero-stage">
+        <div className="hero-mesh" aria-hidden="true">
+          <span className="mesh mesh-1" />
+          <span className="mesh mesh-2" />
+          <span className="mesh mesh-3" />
+        </div>
 
-      <div className="container hero-inner">
-        <div className="hero-content">
-          <span className="section-eyebrow hero-eyebrow" key={`e-${active}`}>
-            {slide.eyebrow}
-          </span>
+        <div className="hero-stage-inner">
+          <span className="hero-eyebrow">SILICON · SOFTWARE · GROWTH</span>
 
-          <h1 className="hero-title" key={`t-${active}`}>
-            {slide.titleLead} <span className="accent">{slide.titleAccent}</span>
+          <h1 className="hero-title">
+            We engineer your
+            <br />
+            <span className="hero-type">
+              <span className="hero-type-word">{display}</span>
+              <span className="hero-caret" aria-hidden="true" />
+            </span>
           </h1>
 
-          <p className="hero-subtitle" key={`s-${active}`}>
-            {slide.subtitle}
+          <p className="hero-subtitle">
+            One partner from first transistor to final campaign — VLSI chip design,
+            custom software, and digital marketing under one roof.
           </p>
 
           <div className="hero-buttons">
-            <button onClick={() => scrollToSection('services')} className="btn btn-primary">
-              Explore services
-              <span className="btn-arrow">→</span>
+            <button onClick={() => scrollToSection('services')} className="btn btn-hero-primary">
+              Explore services <span className="btn-arrow">→</span>
             </button>
-            <button onClick={() => scrollToSection('contact')} className="btn btn-secondary">
+            <button onClick={() => scrollToSection('contact')} className="btn btn-hero-ghost">
               Talk to us
             </button>
           </div>
 
-          <div className="hero-dots">
-            {slides.map((s, i) => (
-              <button
-                key={i}
-                className={`hero-dot ${i === active ? 'active' : ''}`}
-                onClick={() => setActive(i)}
-                aria-label={`Show ${s.titleLead} ${s.titleAccent}`}
-              />
-            ))}
+          {/* corner cards */}
+          <div className="hero-card hero-card-left">
+            <div className="hero-card-stars">★★★★★</div>
+            <p>Trusted by teams across <strong>India &amp; South Korea</strong> for silicon-to-software delivery.</p>
           </div>
-        </div>
 
-        <div className="hero-visual" aria-hidden="true">
-          <div className="hero-chip">
-            <div className="hero-chip-core">
-              <span className="hero-chip-label">Synth</span>
+          <div className="hero-card hero-card-right">
+            <span className="hero-card-label">Our disciplines</span>
+            <div className="hero-card-tags">
+              <span>VLSI</span>
+              <span>Software</span>
+              <span>Marketing</span>
             </div>
-            {/* circuit pins */}
-            {Array.from({ length: 7 }).map((_, i) => (
-              <span key={`pt-${i}`} className="pin pin-top" style={{ left: `${12 + i * 12}%` }} />
-            ))}
-            {Array.from({ length: 7 }).map((_, i) => (
-              <span key={`pb-${i}`} className="pin pin-bottom" style={{ left: `${12 + i * 12}%` }} />
-            ))}
-            {Array.from({ length: 5 }).map((_, i) => (
-              <span key={`pl-${i}`} className="pin pin-left" style={{ top: `${18 + i * 16}%` }} />
-            ))}
-            {Array.from({ length: 5 }).map((_, i) => (
-              <span key={`pr-${i}`} className="pin pin-right" style={{ top: `${18 + i * 16}%` }} />
-            ))}
-          </div>
-
-          <div className="hero-badges">
-            {slides.map((s, i) => (
-              <div key={i} className={`hero-badge ${i === active ? 'active' : ''}`}>
-                {s.titleLead} {s.titleAccent}
-              </div>
-            ))}
           </div>
         </div>
       </div>

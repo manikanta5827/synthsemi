@@ -4,14 +4,21 @@ import './Header.css'
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isHidden, setIsHidden] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const { theme, toggleTheme } = useTheme()
 
   useEffect(() => {
+    let lastY = window.scrollY
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
+      const y = window.scrollY
+      setIsScrolled(y > 20)
+      // hide when scrolling down past the header, reveal when scrolling up
+      if (y > lastY && y > 120) setIsHidden(true)
+      else if (y < lastY) setIsHidden(false)
+      lastY = y
     }
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
@@ -24,7 +31,7 @@ const Header = () => {
   }
 
   return (
-    <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
+    <header className={`header ${isScrolled ? 'scrolled' : ''} ${isHidden && !isMobileMenuOpen ? 'hidden' : ''}`}>
       <nav className="nav-container">
         <div className="logo" onClick={() => scrollToSection('home')}>
           <img

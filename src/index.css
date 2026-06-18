@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -7,59 +7,49 @@
 }
 
 :root {
-  /* === Silicon-tech Blue, Light Theme === */
-  --blue-50: #eff6ff;
-  --blue-100: #dbeafe;
-  --blue-200: #bfdbfe;
-  --blue-300: #93c5fd;
-  --blue-400: #60a5fa;
-  --blue-500: #3b82f6;
-  --blue-600: #2563eb;
-  --blue-700: #1d4ed8;
-  --blue-800: #1e40af;
-  --blue-900: #14306b;
-  --navy: #0a1f44;
-  --cyan: #22d3ee;
+  /* === Enterprise Blue / White — Trust & Authority === */
+  --navy: #0f172a;
+  --navy-700: #1e293b;
 
-  --primary-color: #1d4ed8;
-  --primary-hover: #1e40af;
-  --secondary-color: #2563eb;
-  --accent-color: #38bdf8;
+  --primary-color: #2563eb;   /* blue CTA / accent */
+  --primary-hover: #1d4ed8;
+  --secondary-color: #1e3a8a; /* deep blue */
+  --accent-color: #0ea5e9;    /* sky, used sparingly */
 
-  --text-primary: #0a1f44;
-  --text-secondary: #45526b;
-  --text-muted: #7585a0;
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
 
   --bg-primary: #ffffff;
-  --bg-secondary: #f5f8ff;
-  --bg-tertiary: #eaf1ff;
+  --bg-secondary: #f8fafc;
+  --bg-tertiary: #eef2f9;
 
-  --border-color: #e2e9f7;
-  --border-hover: #c3d3f5;
+  --border-color: #e2e8f0;
+  --border-hover: #cbd5e1;
 
-  /* Glass surfaces */
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.6);
-  --card-bg: rgba(255, 255, 255, 0.85);
+  /* Surfaces — solid, enterprise (minimal glass) */
+  --glass-bg: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(226, 232, 240, 0.9);
+  --card-bg: #ffffff;
 
-  /* Blue-tinted shadows for depth */
-  --shadow-sm: 0 1px 2px 0 rgba(13, 42, 92, 0.06);
-  --shadow: 0 2px 8px -1px rgba(13, 42, 92, 0.08), 0 1px 3px rgba(13, 42, 92, 0.05);
-  --shadow-md: 0 8px 24px -6px rgba(13, 42, 92, 0.12), 0 2px 6px rgba(13, 42, 92, 0.06);
-  --shadow-lg: 0 18px 40px -10px rgba(13, 42, 92, 0.18), 0 6px 14px rgba(13, 42, 92, 0.08);
-  --shadow-xl: 0 30px 60px -14px rgba(13, 42, 92, 0.24);
-  --shadow-glow: 0 0 0 1px rgba(56, 189, 248, 0.18), 0 18px 50px -12px rgba(37, 99, 235, 0.35);
+  /* Crisp neutral shadows */
+  --shadow-sm: 0 1px 2px 0 rgba(15, 23, 42, 0.05);
+  --shadow: 0 1px 3px rgba(15, 23, 42, 0.08), 0 1px 2px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 6px 16px -6px rgba(15, 23, 42, 0.12), 0 2px 4px rgba(15, 23, 42, 0.05);
+  --shadow-lg: 0 14px 32px -10px rgba(15, 23, 42, 0.16), 0 4px 10px rgba(15, 23, 42, 0.05);
+  --shadow-xl: 0 28px 56px -16px rgba(15, 23, 42, 0.22);
+  --shadow-glow: 0 10px 30px -8px rgba(37, 99, 235, 0.4);
 
-  --gradient-primary: linear-gradient(135deg, #1d4ed8 0%, #2563eb 45%, #38bdf8 100%);
-  --gradient-vivid: linear-gradient(120deg, #0a1f44 0%, #1d4ed8 50%, #22d3ee 100%);
-  --gradient-text: linear-gradient(100deg, #2563eb 0%, #38bdf8 60%, #22d3ee 100%);
-  --gradient-subtle: linear-gradient(160deg, #f5f8ff 0%, #eaf1ff 100%);
-  --gradient-card-border: linear-gradient(140deg, rgba(56, 189, 248, 0.5), rgba(37, 99, 235, 0.15) 45%, rgba(255, 255, 255, 0));
+  --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
+  --gradient-vivid: linear-gradient(140deg, #0f172a 0%, #1e3a8a 55%, #2563eb 100%);
+  --gradient-text: linear-gradient(100deg, #1d4ed8 0%, #0ea5e9 100%);
+  --gradient-subtle: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+  --gradient-card-border: linear-gradient(140deg, rgba(37, 99, 235, 0.45), rgba(14, 165, 233, 0.12) 50%, rgba(255, 255, 255, 0));
 
   /* Decorative dotted grid texture */
-  --grid-dot: rgba(37, 99, 235, 0.07);
+  --grid-dot: rgba(37, 99, 235, 0.06);
 
-  --radius: 18px;
+  --radius: 14px;
 }
 
 [data-theme="dark"] {
@@ -68,31 +58,31 @@
   --secondary-color: #3b82f6;
   --accent-color: #38bdf8;
 
-  --text-primary: #eaf1ff;
-  --text-secondary: #b6c4e0;
-  --text-muted: #7f90b3;
+  --text-primary: #f1f5f9;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
 
-  --bg-primary: #060d1f;
-  --bg-secondary: #0a1530;
-  --bg-tertiary: #112047;
+  --bg-primary: #0b1220;
+  --bg-secondary: #0f172a;
+  --bg-tertiary: #1e293b;
 
-  --border-color: #1b2a52;
-  --border-hover: #2a3d6e;
+  --border-color: #1e293b;
+  --border-hover: #334155;
 
-  --glass-bg: rgba(13, 26, 58, 0.55);
-  --glass-border: rgba(98, 132, 210, 0.22);
-  --card-bg: rgba(14, 28, 62, 0.65);
+  --glass-bg: rgba(15, 23, 42, 0.75);
+  --glass-border: rgba(51, 65, 85, 0.8);
+  --card-bg: #111c30;
 
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.4);
   --shadow: 0 2px 8px -1px rgba(0, 0, 0, 0.45);
   --shadow-md: 0 10px 28px -8px rgba(0, 0, 0, 0.55);
   --shadow-lg: 0 20px 44px -12px rgba(0, 0, 0, 0.6);
   --shadow-xl: 0 34px 64px -16px rgba(0, 0, 0, 0.7);
-  --shadow-glow: 0 0 0 1px rgba(56, 189, 248, 0.25), 0 22px 56px -14px rgba(56, 189, 248, 0.4);
+  --shadow-glow: 0 14px 40px -10px rgba(37, 99, 235, 0.5);
 
-  --gradient-subtle: linear-gradient(160deg, #0a1530 0%, #060d1f 100%);
-  --gradient-card-border: linear-gradient(140deg, rgba(56, 189, 248, 0.55), rgba(96, 165, 250, 0.18) 45%, rgba(255, 255, 255, 0));
-  --grid-dot: rgba(96, 165, 250, 0.1);
+  --gradient-subtle: linear-gradient(180deg, #0f172a 0%, #0b1220 100%);
+  --gradient-card-border: linear-gradient(140deg, rgba(96, 165, 250, 0.5), rgba(56, 189, 248, 0.14) 50%, rgba(255, 255, 255, 0));
+  --grid-dot: rgba(96, 165, 250, 0.09);
 }
 
 html {
@@ -133,8 +123,14 @@ main {
   padding: 0 24px;
 }
 
-h1, h2, h3, h4, .section-title, .hero-title {
+h3, h4 {
   font-family: 'Sora', sans-serif;
+}
+
+/* big editorial display headings — Retell-style condensed serif */
+.hero-title, .section-title, .display-serif {
+  font-family: 'Instrument Serif', 'Sora', serif;
+  font-weight: 400;
 }
 
 /* === Decorative section helpers === */
@@ -216,13 +212,13 @@ h1, h2, h3, h4, .section-title, .hero-title {
 
 /* === Section titles === */
 .section-title {
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 700;
+  font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+  font-weight: 400;
   text-align: center;
   margin-bottom: 1rem;
   color: var(--text-primary);
-  letter-spacing: -0.03em;
-  line-height: 1.12;
+  letter-spacing: -0.015em;
+  line-height: 1.04;
 }
 
 .section-title .accent {
