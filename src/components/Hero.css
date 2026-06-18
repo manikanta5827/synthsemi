@@ -128,7 +128,7 @@
   color: rgba(255, 255, 255, 0.78);
   max-width: 600px;
   margin: 0 auto 2.25rem;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Hanken Grotesque', sans-serif;
   animation: heroIn 0.8s ease both;
 }
 
@@ -187,7 +187,7 @@
   max-width: 260px;
 }
 .hero-card-stars { color: #fbbf24; font-size: 0.85rem; letter-spacing: 2px; margin-bottom: 0.4rem; }
-.hero-card-left p { font-size: 0.82rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); font-family: 'Manrope', sans-serif; }
+.hero-card-left p { font-size: 0.82rem; line-height: 1.5; color: rgba(255, 255, 255, 0.85); font-family: 'Hanken Grotesque', sans-serif; }
 
 .hero-card-right {
   right: 28px;

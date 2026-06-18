@@ -32,10 +32,10 @@ const Features = () => {
         <div className="features-head">
           <span className="section-eyebrow fade-in">Why choose us</span>
           <h2 className="section-title fade-in">
-            Built on <span className="accent">discipline & trust</span>
+            Built to ship, <span className="accent">made to last.</span>
           </h2>
           <p className="section-subtitle fade-in">
-            The principles that run through every engagement, whether it's silicon, software or growth.
+            The standard behind every engagement — from first transistor to final campaign.
           </p>
         </div>
         <div className="features-grid">

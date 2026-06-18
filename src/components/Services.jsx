@@ -73,10 +73,10 @@ const Services = () => {
         <div className="services-head">
           <span className="section-eyebrow fade-in">What we do</span>
           <h2 className="section-title fade-in">
-            One partner, <span className="accent">three disciplines</span>
+            One team, <span className="accent">silicon to screen.</span>
           </h2>
           <p className="section-subtitle fade-in">
-            From chips to cloud to campaigns — SynthSemi delivers across silicon, software and digital growth.
+            Chip design, software, and digital growth — engineered to one standard, under one roof.
           </p>
         </div>
 

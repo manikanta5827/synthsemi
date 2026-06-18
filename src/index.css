@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Sora:wght@400;500;600;700;800&family=Manrope:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesque:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -90,7 +90,7 @@ html {
 }
 
 body {
-  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Hanken Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-primary);
@@ -124,12 +124,12 @@ main {
 }
 
 h3, h4 {
-  font-family: 'Sora', sans-serif;
+  font-family: 'Hanken Grotesque', sans-serif;
 }
 
-/* big editorial display headings — Retell-style condensed serif */
+/* big editorial display headings — condensed serif (Denton-style) */
 .hero-title, .section-title, .display-serif {
-  font-family: 'Instrument Serif', 'Sora', serif;
+  font-family: 'Instrument Serif', Georgia, serif;
   font-weight: 400;
 }
 
@@ -252,7 +252,7 @@ h3, h4 {
   position: relative;
   overflow: hidden;
   letter-spacing: 0.01em;
-  font-family: 'Manrope', sans-serif;
+  font-family: 'Hanken Grotesque', sans-serif;
 }
 
 .btn-primary {
