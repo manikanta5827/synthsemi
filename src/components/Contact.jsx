@@ -58,7 +58,9 @@ const Contact = () => {
               </div>
               <div className="detail-item">
                 <h4>Email</h4>
-                <p>info@synthsemi.com</p>
+                <p>business@synthsemi.com</p>
+                <h4>Mobile</h4>
+                <p>+91 9148548174</p>
               </div>
             </div>
           </div>

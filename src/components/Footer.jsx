@@ -47,11 +47,6 @@ const Footer = () => {
               Engineering the future from silicon to screen. Global partners in VLSI, 
               Software, and Digital Growth.
             </p>
-            <div className="footer-socials">
-              <a href="#" aria-label="LinkedIn">LN</a>
-              <a href="#" aria-label="Twitter">TW</a>
-              <a href="#" aria-label="GitHub">GH</a>
-            </div>
           </div>
 
           <div className="footer-links-grid">

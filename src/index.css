@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Hanken+Grotesque:wght@400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');
 
 * {
   margin: 0;
@@ -105,7 +105,7 @@ html {
 }
 
 body {
-  font-family: 'Hanken Grotesque', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: var(--text-primary);
@@ -133,13 +133,14 @@ main {
 }
 
 .container {
+  width: 100%;
   max-width: 1240px;
   margin: 0 auto;
   padding: 0 24px;
 }
 
 h3, h4 {
-  font-family: 'Hanken Grotesque', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 /* big editorial display headings — condensed serif (Denton-style) */
@@ -235,7 +236,7 @@ h3, h4 {
   position: relative;
   overflow: hidden;
   letter-spacing: 0.01em;
-  font-family: 'Hanken Grotesque', sans-serif;
+  font-family: 'Plus Jakarta Sans', sans-serif;
 }
 
 .btn-primary {

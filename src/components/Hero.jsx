@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react'
 import './Hero.css'
 
-const words = ['Silicon Design', 'Enterprise Software', 'Mission Critical']
+const words = ['Silicon Design', 'Enterprise Software', 'Digital Marketing']
+const wordImages = ['/chip.png', '/software.png', '/marketing.jpg']
 
 const Hero = () => {
   const [display, setDisplay] = useState('')
@@ -55,45 +56,57 @@ const Hero = () => {
       </div>
       
       <div className="container">
-        <div className="hero-content">
-          <div className="hero-badge">
-            <span className="badge-dot"></span>
-            Leading the Hardware-Software Convergence
-          </div>
-          
-          <h1 className="hero-title">
-            Engineering your <br />
-            <div className="hero-type-container">
-              <span className="hero-gradient-text">
-                {display}<span className="hero-cursor">|</span>
-              </span>
+        <div className="hero-split">
+
+          {/* LEFT — text */}
+          <div className="hero-left">
+            <h1 className="hero-title">
+              Engineering your
+              <div className="hero-type-container">
+                <span className="hero-gradient-text">
+                  {display}<span className="hero-cursor">|</span>
+                </span>
+              </div>
+              with Precision.
+            </h1>
+
+            <p className="hero-subtitle">
+              One accountable partner for VLSI chip design, enterprise software,
+              and digital growth — from first transistor to final campaign.
+            </p>
+
+            <div className="hero-actions">
+              <button onClick={() => scrollToSection('contact')} className="btn btn-hero-primary">
+                Consult with an Architect
+              </button>
+              <button onClick={() => scrollToSection('services')} className="btn btn-hero-outline">
+                Explore Solutions
+              </button>
             </div>
-            with Precision.
-          </h1>
 
-          <p className="hero-subtitle">
-            The world's most trusted partner for high-stakes VLSI chip design 
-            and complex enterprise software architecture.
-          </p>
-
-          <div className="hero-actions">
-            <button onClick={() => scrollToSection('contact')} className="btn btn-hero-primary">
-              Consult with an Architect
-            </button>
-            <button onClick={() => scrollToSection('services')} className="btn btn-hero-outline">
-              Explore Solutions
-            </button>
-          </div>
-
-          <div className="hero-trust">
-            <p>Proven Expertise in</p>
-            <div className="trust-logos">
-              <div className="trust-logo">ARM</div>
-              <div className="trust-logo">RISC-V</div>
-              <div className="trust-logo">CADENCE</div>
-              <div className="trust-logo">TSMC</div>
+            <div className="hero-trust">
+              <p>Proven Expertise in</p>
+              <div className="trust-logos">
+                <div className="trust-logo">ARM</div>
+                <div className="trust-logo">RISC-V</div>
+                <div className="trust-logo">CADENCE</div>
+                <div className="trust-logo">TSMC</div>
+              </div>
             </div>
           </div>
+
+          {/* RIGHT — image swaps with typewriter word */}
+          <div className="hero-right">
+            <div className="hero-image-wrap">
+              <img
+                key={wordIdx}
+                src={wordImages[wordIdx]}
+                alt={words[wordIdx]}
+                className="hero-image"
+              />
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

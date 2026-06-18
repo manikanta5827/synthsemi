@@ -4,7 +4,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-top: 80px;
+  padding-top: 160px;
   overflow: hidden;
   background-color: #050505;
   color: #ffffff;
@@ -51,12 +51,20 @@
   background-size: 60px 60px;
 }
 
-.hero-content {
+/* two-column split: text left, image right */
+.hero-split {
   position: relative;
   z-index: 2;
-  text-align: center;
-  max-width: 1000px;
-  margin: 0 auto;
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 4rem;
+  align-items: center;
+  width: 100%;
+}
+
+.hero-left {
+  text-align: left;
+  min-width: 0;
 }
 
 .hero-badge {
@@ -85,11 +93,14 @@
 }
 
 .hero-type-container {
-  min-height: 1.2em;
+  height: 1.25em;
+  width: 100%;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   margin: 0.5rem 0;
+  overflow: hidden;
+  white-space: nowrap;
 }
 
 .hero-title {
@@ -103,6 +114,7 @@
 }
 
 .hero-gradient-text {
+  font-size: 0.82em;
   color: #fff;
   background: linear-gradient(to right, #fff, #94a3b8);
   -webkit-background-clip: text;
@@ -127,7 +139,7 @@
   font-size: clamp(1rem, 2vw, 1.15rem);
   color: #94a3b8;
   max-width: 600px;
-  margin: 0 auto 3.5rem;
+  margin: 0 0 3.5rem;
   line-height: 1.6;
   font-weight: 450;
 }
@@ -135,8 +147,8 @@
 .hero-actions {
   display: flex;
   gap: 16px;
-  justify-content: center;
-  margin-bottom: 5rem;
+  justify-content: flex-start;
+  margin-bottom: 3.5rem;
 }
 
 .btn-hero-primary {
@@ -186,7 +198,7 @@
 .trust-logos {
   display: flex;
   gap: 40px;
-  justify-content: center;
+  justify-content: flex-start;
   flex-wrap: wrap;
   opacity: 0.6;
 }
@@ -220,4 +232,53 @@
   .trust-logos {
     gap: 20px;
   }
+}
+
+/* ── Right-side image panel ── */
+.hero-right {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: -8rem;
+}
+
+.hero-image-wrap {
+  width: 100%;
+  max-width: 480px;
+  aspect-ratio: 1 / 1;
+  border-radius: 28px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 32px 80px -20px rgba(0, 0, 0, 0.7), 0 0 0 1px rgba(255, 255, 255, 0.04);
+  padding: 2rem;
+}
+
+@keyframes hero-img-in {
+  from { opacity: 0; transform: scale(1.04); filter: blur(4px); }
+  to   { opacity: 1; transform: scale(1);    filter: blur(0);   }
+}
+
+.hero-image {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 16px;
+  animation: hero-img-in 0.65s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@media (max-width: 900px) {
+  .hero-split {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+  .hero-left { text-align: center; }
+  .hero-type-container { justify-content: center; }
+  .hero-actions { justify-content: center; }
+  .trust-logos { justify-content: center; }
+  .hero-right { order: -1; }
+  .hero-image-wrap { max-width: 320px; aspect-ratio: 1 / 1; padding: 1.25rem; }
 }
