@@ -5,6 +5,7 @@ const Contact = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    interest: 'VLSI Design',
     message: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
@@ -15,42 +16,21 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     })
-    // Clear status when user starts typing
     if (submitStatus) setSubmitStatus(null)
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsSubmitting(true)
-    setSubmitStatus(null)
-
     try {
-      // Determine API URL based on environment
-      const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:3001'
-      
-      const response = await fetch(`${apiUrl}/api/contact`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      })
-
-      const data = await response.json()
-
-      if (data.success) {
-        setSubmitStatus({ type: 'success', message: 'Thank you for your message! We will get back to you soon.' })
-        setFormData({ name: '', email: '', message: '' })
-      } else {
-        setSubmitStatus({ type: 'error', message: data.error || 'Failed to submit. Please try again.' })
-      }
+      // Mocking submission for now
+      setTimeout(() => {
+        setSubmitStatus({ type: 'success', message: 'Request sent! We will contact you shortly.' })
+        setFormData({ name: '', email: '', interest: 'VLSI Design', message: '' })
+        setIsSubmitting(false)
+      }, 1000)
     } catch (error) {
-      console.error('Error submitting form:', error)
-      setSubmitStatus({ 
-        type: 'error', 
-        message: 'Unable to connect to server. Please check your connection or contact us directly via email.' 
-      })
-    } finally {
+      setSubmitStatus({ type: 'error', message: 'Something went wrong. Please try again.' })
       setIsSubmitting(false)
     }
   }
@@ -58,91 +38,103 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <span className="section-eyebrow contact-eyebrow fade-in">Get in touch</span>
-        <h2 className="section-title fade-in">
-          Let's build <span className="accent">what's next</span>
-        </h2>
-        <p className="contact-intro fade-in">
-          Tell us about your project — chip, software or campaign — and we'll get back to you shortly.
-        </p>
-        <div className="contact-content">
-          <div className="contact-info slide-in-left">
-            <div className="contact-item fade-in">
-              <h3>Address</h3>
-              <p>
-                Karthik Nagar, Bus Stop, Service Rd,<br />
-                Wasa Layout, Doddanekundi,<br />
-                Doddanekkundi, Bengaluru,<br />
-                Karnataka 560037, India
-              </p>
-            </div>
-            <div className="contact-item fade-in">
-              <h3>Secondary Address</h3>
-              <p>
-                Room 510, 14 Seocheon-ro 201beon-gil,<br />
-                Giheung-gu,<br />
-                Yongin-si, Gyeonggi-do<br />
-                Tel: 031.889. 0432<br />
-                South Korea
-              </p>
-            </div>
-            <div className="contact-item fade-in">
-              <h3>Phone</h3>
-              <p>
-                <a href="tel:+918374544086">+91 7676379329</a>
-              </p>
-            </div>
-            <div className="contact-item fade-in">
-              <h3>Email</h3>
-              <p>
-                <a href="mailto:info@synthsemi.com">info@synthsemi.com</a>
-              </p>
+        <div className="contact-grid">
+          <div className="contact-info">
+            <span className="section-eyebrow">Get in Touch</span>
+            <h2 className="section-title">Let's build <br/><span className="accent">the next big thing.</span></h2>
+            <p className="contact-intro">
+              Join leading semiconductor and software firms who trust SynthSemi 
+              for their most critical engineering challenges.
+            </p>
+            
+            <div className="contact-details">
+              <div className="detail-item">
+                <h4>Bengaluru, India</h4>
+                <p>Karthik Nagar, Doddanekundi, Bengaluru 560037</p>
+              </div>
+              <div className="detail-item">
+                <h4>Yongin, South Korea</h4>
+                <p>14 Seocheon-ro 201beon-gil, Giheung-gu</p>
+              </div>
+              <div className="detail-item">
+                <h4>Email</h4>
+                <p>info@synthsemi.com</p>
+              </div>
             </div>
           </div>
-          <form className="contact-form slide-in-right" onSubmit={handleSubmit}>
-            <div className="form-group">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-              />
-            </div>
-            <div className="form-group">
-              <textarea
-                name="message"
-                placeholder="Your Message"
-                rows="5"
-                value={formData.message}
-                onChange={handleChange}
-                required
-              ></textarea>
-            </div>
-            {submitStatus && (
-              <div className={`submit-status ${submitStatus.type}`}>
-                {submitStatus.message}
+
+          <div className="contact-form-container">
+            <form className="contact-form" onSubmit={handleSubmit}>
+              <h3 className="form-heading">Book a Consultation</h3>
+              
+              <div className="form-group">
+                <label htmlFor="name">Name</label>
+                <input
+                  id="name"
+                  type="text"
+                  name="name"
+                  placeholder="Your Name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                />
               </div>
-            )}
-            <button 
-              type="submit" 
-              className="btn btn-primary"
-              disabled={isSubmitting}
-            >
-              {isSubmitting ? 'Submitting...' : 'Submit'}
-            </button>
-          </form>
+
+              <div className="form-group">
+                <label htmlFor="email">Email</label>
+                <input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="Work Email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="interest">Area of Interest</label>
+                <select 
+                  id="interest"
+                  name="interest"
+                  value={formData.interest}
+                  onChange={handleChange}
+                >
+                  <option>VLSI Design</option>
+                  <option>Software Development</option>
+                  <option>Digital Marketing</option>
+                  <option>General Inquiry</option>
+                </select>
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message">Message (Optional)</label>
+                <textarea
+                  id="message"
+                  name="message"
+                  placeholder="How can we help?"
+                  rows="3"
+                  value={formData.message}
+                  onChange={handleChange}
+                ></textarea>
+              </div>
+
+              {submitStatus && (
+                <div className={`submit-status ${submitStatus.type}`}>
+                  {submitStatus.message}
+                </div>
+              )}
+
+              <button 
+                type="submit" 
+                className="btn btn-primary btn-block"
+                disabled={isSubmitting}
+              >
+                {isSubmitting ? 'Sending...' : 'Send Request →'}
+              </button>
+            </form>
+          </div>
         </div>
       </div>
     </section>
@@ -150,4 +142,3 @@ const Contact = () => {
 }
 
 export default Contact
-

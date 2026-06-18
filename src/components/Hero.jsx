@@ -1,14 +1,13 @@
 import { useState, useEffect } from 'react'
 import './Hero.css'
 
-const words = ['Chip Design', 'Software', 'Digital Marketing']
+const words = ['Silicon Design', 'Enterprise Software', 'Mission Critical']
 
 const Hero = () => {
   const [display, setDisplay] = useState('')
   const [wordIdx, setWordIdx] = useState(0)
   const [deleting, setDeleting] = useState(false)
 
-  // typewriter loop: type → hold → delete → next
   useEffect(() => {
     const current = words[wordIdx]
     let delay = deleting ? 45 : 95
@@ -31,56 +30,68 @@ const Hero = () => {
     return () => clearTimeout(t)
   }, [display, deleting, wordIdx])
 
-  const scrollToSection = (id) =>
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id)
+    if (element) {
+      const offset = 80
+      const bodyRect = document.body.getBoundingClientRect().top
+      const elementRect = element.getBoundingClientRect().top
+      const elementPosition = elementRect - bodyRect
+      const offsetPosition = elementPosition - offset
+
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      })
+    }
+  }
 
   return (
     <section id="home" className="hero">
-      <div className="hero-stage">
-        <div className="hero-mesh" aria-hidden="true">
-          <span className="mesh mesh-1" />
-          <span className="mesh mesh-2" />
-          <span className="mesh mesh-3" />
-        </div>
-
-        <div className="hero-stage-inner">
-          <span className="hero-eyebrow">SILICON · SOFTWARE · GROWTH</span>
-
+      <div className="hero-background">
+        <div className="glow-1"></div>
+        <div className="glow-2"></div>
+        <div className="grid-overlay"></div>
+      </div>
+      
+      <div className="container">
+        <div className="hero-content">
+          <div className="hero-badge">
+            <span className="badge-dot"></span>
+            Leading the Hardware-Software Convergence
+          </div>
+          
           <h1 className="hero-title">
-            We engineer your
-            <br />
-            <span className="hero-type">
-              <span className="hero-type-word">{display}</span>
-              <span className="hero-caret" aria-hidden="true" />
-            </span>
+            Engineering your <br />
+            <div className="hero-type-container">
+              <span className="hero-gradient-text">
+                {display}<span className="hero-cursor">|</span>
+              </span>
+            </div>
+            with Precision.
           </h1>
 
           <p className="hero-subtitle">
-            One partner from first transistor to final campaign — VLSI chip design,
-            custom software, and digital marketing under one roof.
+            The world's most trusted partner for high-stakes VLSI chip design 
+            and complex enterprise software architecture.
           </p>
 
-          <div className="hero-buttons">
-            <button onClick={() => scrollToSection('services')} className="btn btn-hero-primary">
-              Explore services <span className="btn-arrow">→</span>
+          <div className="hero-actions">
+            <button onClick={() => scrollToSection('contact')} className="btn btn-hero-primary">
+              Consult with an Architect
             </button>
-            <button onClick={() => scrollToSection('contact')} className="btn btn-hero-ghost">
-              Talk to us
+            <button onClick={() => scrollToSection('services')} className="btn btn-hero-outline">
+              Explore Solutions
             </button>
           </div>
 
-          {/* corner cards */}
-          <div className="hero-card hero-card-left">
-            <div className="hero-card-stars">★★★★★</div>
-            <p>Trusted by teams across <strong>India &amp; South Korea</strong> for silicon-to-software delivery.</p>
-          </div>
-
-          <div className="hero-card hero-card-right">
-            <span className="hero-card-label">Our disciplines</span>
-            <div className="hero-card-tags">
-              <span>VLSI</span>
-              <span>Software</span>
-              <span>Marketing</span>
+          <div className="hero-trust">
+            <p>Proven Expertise in</p>
+            <div className="trust-logos">
+              <div className="trust-logo">ARM</div>
+              <div className="trust-logo">RISC-V</div>
+              <div className="trust-logo">CADENCE</div>
+              <div className="trust-logo">TSMC</div>
             </div>
           </div>
         </div>

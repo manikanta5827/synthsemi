@@ -17,7 +17,7 @@ export const initScrollAnimations = () => {
 
   // Observe all elements with animation classes
   const animatedElements = document.querySelectorAll(
-    '.fade-in, .slide-in-left, .slide-in-right, .scale-in'
+    '.fade-in, .fade-up, .slide-in-left, .slide-in-right, .scale-in, .blur-in'
   )
   
   animatedElements.forEach(el => observer.observe(el))

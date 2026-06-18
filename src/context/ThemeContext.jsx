@@ -12,8 +12,8 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Default to the light (blue/white) brand theme; respect a saved choice.
-    return localStorage.getItem('theme') || 'light'
+    // Default to dark mode for the new premium aesthetic.
+    return localStorage.getItem('theme') || 'dark'
   })
 
   useEffect(() => {

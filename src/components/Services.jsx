@@ -30,6 +30,7 @@ const groups = [
     id: 'vlsi',
     tag: 'Silicon Engineering',
     heading: 'VLSI & Chip Design',
+    image: '/chip.png',
     blurb: 'Full-spectrum semiconductor design and verification, from spec to first-time-right silicon.',
     items: [
       { title: 'Design Services', icon: 'chip', description: 'ASIC design from specification to RTL coding, micro-architecture and logic partitioning that hits your power and performance targets.' },
@@ -44,24 +45,24 @@ const groups = [
     id: 'software',
     tag: 'Software Solutions',
     heading: 'Software Solutions',
+    image: '/software.png',
     blurb: 'Custom software engineered to scale — across web, mobile, cloud and embedded systems.',
     items: [
       { title: 'Web & App Development', icon: 'code', description: 'Modern, responsive web and mobile applications built with reliable, maintainable engineering practices.' },
       { title: 'Cloud & DevOps', icon: 'cloud', description: 'Cloud architecture, CI/CD pipelines and infrastructure automation for resilient, cost-efficient deployments.' },
       { title: 'Embedded Software', icon: 'board', description: 'Firmware and embedded software that bridges hardware and application — a natural extension of our silicon work.' },
-      { title: 'Product Engineering', icon: 'rocket', description: 'End-to-end product development from idea to launch, with design, build and ongoing support under one roof.' },
     ],
   },
   {
     id: 'marketing',
-    tag: 'Digital Marketing',
-    heading: 'Digital Marketing',
-    blurb: 'Turn attention into measurable growth with data-driven digital marketing.',
+    tag: 'Ecosystem & Growth',
+    heading: 'Ecosystem & Growth',
+    image: '/marketing.jpg',
+    blurb: 'Strategic support to scale your technical product’s market presence and organic reach.',
     items: [
-      { title: 'SEO', icon: 'search', description: 'Technical and content SEO that grows organic visibility and brings qualified traffic to your business.' },
-      { title: 'Social Media', icon: 'share', description: 'Strategy, content and community management that builds an engaged audience across the platforms that matter.' },
-      { title: 'Performance Marketing', icon: 'trend', description: 'Paid campaigns optimised around real metrics — every rupee tracked, tuned and accountable to results.' },
-      { title: 'Branding & Design', icon: 'pen', description: 'Identity, visual systems and creative that make your brand distinctive and consistent everywhere it appears.' },
+      { title: 'Technical SEO', icon: 'search', description: 'Specialized SEO and content strategy to grow technical visibility and domain authority for engineering brands.' },
+      { title: 'Brand Architecture', icon: 'pen', description: 'Visual systems and creative identity that communicate technical excellence and reliability.' },
+      { title: 'Growth Strategy', icon: 'trend', description: 'Data-driven go-to-market strategies tailored for semiconductor and enterprise software sectors.' },
     ],
   },
 ]
@@ -70,28 +71,36 @@ const Services = () => {
   return (
     <section id="services" className="services">
       <div className="container">
-        <div className="services-head">
-          <span className="section-eyebrow fade-in">What we do</span>
-          <h2 className="section-title fade-in">
-            One team, <span className="accent">silicon to screen.</span>
-          </h2>
-          <p className="section-subtitle fade-in">
+        <div className="section-head-split services-head fade-up">
+          <div>
+            <span className="section-eyebrow">What we do</span>
+            <h2 className="section-title">
+              One team, <span className="accent">silicon to screen.</span>
+            </h2>
+          </div>
+          <p className="section-head-aside">
             Chip design, software, and digital growth — engineered to one standard, under one roof.
           </p>
         </div>
 
         {groups.map((group) => (
           <div key={group.id} className="service-group">
-            <div className="service-group-head fade-up">
-              <span className="service-group-tag">{group.tag}</span>
-              <h3 className="service-group-title">{group.heading}</h3>
-              <p className="service-group-blurb">{group.blurb}</p>
+            <div className="service-group-intro">
+              <div className="service-group-text">
+                <span className="service-group-tag">{group.tag}</span>
+                <h3 className="service-group-title">{group.heading}</h3>
+                <p className="service-group-blurb">{group.blurb}</p>
+              </div>
+              <div className="service-group-image">
+                <img src={group.image} alt={group.heading} />
+                <div className="image-glow"></div>
+              </div>
             </div>
             <div className="services-grid">
               {group.items.map((service, index) => (
                 <article
                   key={service.title}
-                  className="service-card scale-in"
+                  className="service-card"
                   style={{ transitionDelay: `${index * 0.08}s` }}
                 >
                   <div className="service-icon">

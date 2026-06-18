@@ -1,0 +1,73 @@
+.cta-band {
+  padding: 5rem 18px;
+  background: var(--bg-primary);
+}
+
+.cta-band-inner {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-radius: 28px;
+  padding: 5rem 2rem;
+  text-align: center;
+  overflow: hidden;
+  color: #fff;
+  /* colorful mesh band, Retell-style */
+  background:
+    radial-gradient(60% 120% at 15% 20%, #7c3aed 0%, transparent 55%),
+    radial-gradient(55% 120% at 85% 30%, #db2777 0%, transparent 55%),
+    radial-gradient(80% 140% at 50% 100%, #0ea5e9 0%, transparent 60%),
+    linear-gradient(120deg, #1e3a8a, #2563eb);
+}
+
+.cta-band-eyebrow {
+  font-family: 'Space Mono', monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  display: inline-block;
+  margin-bottom: 1.25rem;
+}
+
+.cta-band-title {
+  font-family: 'Instrument Serif', Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.4rem, 6vw, 4.5rem);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin-bottom: 1.1rem;
+  color: #fff;
+}
+
+.cta-band-sub {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 52ch;
+  margin: 0 auto 2rem;
+}
+
+.cta-band-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #fff;
+  color: #1e3a8a;
+  border: none;
+  border-radius: 999px;
+  padding: 0.95rem 2rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 12px 30px -12px rgba(0, 0, 0, 0.5);
+}
+.cta-band-btn:hover { transform: translateY(-2px); box-shadow: 0 18px 40px -14px rgba(0, 0, 0, 0.6); }
+.cta-band-btn .btn-arrow { transition: transform 0.3s ease; }
+.cta-band-btn:hover .btn-arrow { transform: translateX(4px); }
+
+@media (max-width: 768px) {
+  .cta-band { padding: 3rem 12px; }
+  .cta-band-inner { padding: 3.5rem 1.5rem; border-radius: 22px; }
+}
