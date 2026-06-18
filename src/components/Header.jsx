@@ -27,9 +27,9 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'scrolled' : ''}`}>
       <nav className="nav-container">
         <div className="logo" onClick={() => scrollToSection('home')}>
-          <img 
-            src="/logo-2.png" 
-            alt="SynthSemi Logo" 
+          <img
+            src="/synth.png"
+            alt="Synth Semiconductor"
             className="logo-image nav-logo"
             onError={(e) => {
               // Fallback if logo doesn't load
@@ -43,9 +43,16 @@ const Header = () => {
           <li><a href="#services" onClick={(e) => { e.preventDefault(); scrollToSection('services') }}>Services</a></li>
           <li><a href="#features" onClick={(e) => { e.preventDefault(); scrollToSection('features') }}>Features</a></li>
           <li><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>Contact</a></li>
+          <li className="nav-cta-mobile"><a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('contact') }}>Get in touch</a></li>
         </ul>
         <div className="header-right">
-          <button 
+          <button
+            className="nav-cta"
+            onClick={() => scrollToSection('contact')}
+          >
+            Get in touch
+          </button>
+          <button
             className="theme-toggle"
             onClick={toggleTheme}
             aria-label={`Switch to ${theme === 'light' ? 'dark' : 'light'} mode`}

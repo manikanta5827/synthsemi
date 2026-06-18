@@ -1,8 +1,10 @@
 .contact {
-  padding: 6rem 0;
-  background: var(--bg-primary);
+  padding: 7rem 0;
+  background: var(--gradient-subtle);
   transition: background-color 0.4s ease;
 }
+
+.contact-eyebrow { justify-content: center; display: flex; }
 
 .contact-intro {
   text-align: center;
@@ -73,8 +75,17 @@
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.25rem;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  height: fit-content;
 }
+.contact-form .btn-primary { justify-content: center; }
 
 .form-group {
   display: flex;
@@ -91,13 +102,13 @@
 
 .form-group input,
 .form-group textarea {
-  padding: 1rem;
+  padding: 1rem 1.1rem;
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 12px;
   font-size: 0.9375rem;
   font-family: inherit;
   transition: all 0.3s ease;
-  background: var(--bg-secondary);
+  background: var(--bg-primary);
   color: var(--text-primary);
 }
 
@@ -106,7 +117,7 @@
   outline: none;
   border-color: var(--primary-color);
   background: var(--bg-primary);
-  box-shadow: 0 0 0 3px rgba(10, 102, 194, 0.1);
+  box-shadow: 0 0 0 4px rgba(56, 189, 248, 0.16);
 }
 
 .form-group textarea {

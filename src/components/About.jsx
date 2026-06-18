@@ -1,39 +1,61 @@
 import './About.css'
 
+const stats = [
+  { value: '360°', label: 'Silicon-to-screen delivery' },
+  { value: '3', label: 'Core disciplines' },
+  { value: '2', label: 'Global locations' },
+  { value: '100%', label: 'Quality-first mindset' },
+]
+
+const pillars = ['VLSI & Chip Design', 'Software Solutions', 'Digital Marketing']
+
 const About = () => {
   return (
     <section id="about" className="about">
       <div className="container">
-        <h2 className="section-title fade-in">About Us</h2>
+        <div className="about-head">
+          <span className="section-eyebrow fade-in">About SynthSemi</span>
+          <h2 className="section-title fade-in">
+            Engineering from <span className="accent">silicon to screen</span>
+          </h2>
+        </div>
+
         <div className="about-content">
           <div className="about-text slide-in-left">
             <p>
-              SynthSemi is an ASIC IP and Design Services company founded by a group of committed 
-              and experienced semiconductor industry professionals with a goal to provide end-to-end 
-              design and engineering services. We are driven to use the power of our global network 
-              to connect businesses with the right people, and people with the right businesses without bias.
+              SynthSemi is an engineering and design services company founded by committed,
+              experienced semiconductor professionals. We started in silicon — and grew into a
+              partner that takes products end to end across chip design, software and digital growth.
             </p>
             <p>
-              It is a leading service provider in VLSI by exceeding expectations on delivery, meeting 
-              stringent schedules, demonstrating integrity and intelligence in all our engagements. 
-              We offer a spectrum of design and verification services, which includes defining specification, 
-              logic partitioning, micro-architecture, RTL coding, synthesis, developing custom and standard 
-              VIPs and verification environment development using latest methodologies (UVM/OVM).
+              A leading service provider in VLSI, we exceed expectations on delivery, meet stringent
+              schedules and bring integrity and intelligence to every engagement. We offer a full
+              spectrum of design and verification — specification, logic partitioning,
+              micro-architecture, RTL coding, synthesis, custom and standard VIPs and verification
+              environments using the latest UVM/OVM methodologies.
             </p>
+            <p>
+              Today that same discipline powers our software engineering and digital marketing teams,
+              giving you one accountable partner from the first transistor to the final campaign.
+            </p>
+
+            <div className="about-stats">
+              {stats.map((s) => (
+                <div key={s.label} className="about-stat fade-up">
+                  <span className="about-stat-value">{s.value}</span>
+                  <span className="about-stat-label">{s.label}</span>
+                </div>
+              ))}
+            </div>
           </div>
+
           <div className="about-services-list slide-in-right">
-            <div className="service-item fade-in">
-              <h3>Design Services</h3>
-            </div>
-            <div className="service-item fade-in">
-              <h3>Verification Services</h3>
-            </div>
-            <div className="service-item fade-in">
-              <h3>FPGA/Emulation Service</h3>
-            </div>
-            <div className="service-item fade-in">
-              <h3>Backend Services</h3>
-            </div>
+            {pillars.map((p) => (
+              <div key={p} className="service-item fade-in">
+                <span className="service-item-dot" />
+                <h3>{p}</h3>
+              </div>
+            ))}
           </div>
         </div>
       </div>
@@ -42,4 +64,3 @@ const About = () => {
 }
 
 export default About
-

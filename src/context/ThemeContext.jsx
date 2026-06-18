@@ -12,12 +12,8 @@ export const useTheme = () => {
 
 export const ThemeProvider = ({ children }) => {
   const [theme, setTheme] = useState(() => {
-    // Check localStorage first, then system preference
-    const savedTheme = localStorage.getItem('theme')
-    if (savedTheme) {
-      return savedTheme
-    }
-    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+    // Default to the light (blue/white) brand theme; respect a saved choice.
+    return localStorage.getItem('theme') || 'light'
   })
 
   useEffect(() => {

@@ -58,9 +58,12 @@ const Contact = () => {
   return (
     <section id="contact" className="contact">
       <div className="container">
-        <h2 className="section-title fade-in">Contact Us</h2>
+        <span className="section-eyebrow contact-eyebrow fade-in">Get in touch</span>
+        <h2 className="section-title fade-in">
+          Let's build <span className="accent">what's next</span>
+        </h2>
         <p className="contact-intro fade-in">
-          Please contact us using the information below. For additional information on our services.
+          Tell us about your project — chip, software or campaign — and we'll get back to you shortly.
         </p>
         <div className="contact-content">
           <div className="contact-info slide-in-left">

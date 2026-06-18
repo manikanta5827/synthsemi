@@ -13,8 +13,9 @@ export default defineConfig({
     },
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom'],
+        // Vite 8 / rolldown requires a function form, not an object
+        manualChunks(id) {
+          if (id.includes('node_modules/react')) return 'vendor'
         },
       },
     },

@@ -12,24 +12,24 @@ function App() {
   return (
     <ThemeProvider>
       <Helmet>
-        <title>SynthSemi - ASIC IP and Design Services | VLSI Design Solutions</title>
-        <meta name="description" content="SynthSemi is a leading ASIC IP and Design Services company providing end-to-end semiconductor design and engineering solutions. Expert VLSI design, verification, FPGA, and backend services." />
-        <meta name="keywords" content="ASIC Design, VLSI, Semiconductor Design, Verification Services, FPGA, Backend Services, RTL Coding, UVM, OVM, IP Design, Chip Design" />
+        <title>SynthSemi - Chip Design, Software & Digital Marketing Solutions</title>
+        <meta name="description" content="SynthSemi is an engineering and design services company delivering across VLSI/ASIC chip design, custom software solutions, and digital marketing. End-to-end semiconductor design, verification, FPGA, cloud, web/app development, SEO and performance marketing." />
+        <meta name="keywords" content="ASIC Design, VLSI, Semiconductor Design, Verification Services, FPGA, Backend Services, RTL Coding, UVM, OVM, Chip Design, Software Solutions, Web Development, App Development, Cloud, DevOps, Embedded Software, Digital Marketing, SEO, Social Media, Performance Marketing, Branding" />
         <meta name="robots" content="index, follow" />
         <meta name="language" content="English" />
         <meta name="revisit-after" content="7 days" />
         <link rel="canonical" href="https://synthsemi.com" />
         
         {/* Open Graph */}
-        <meta property="og:title" content="SynthSemi - ASIC IP and Design Services" />
-        <meta property="og:description" content="Leading semiconductor design services company providing end-to-end ASIC design and verification solutions" />
+        <meta property="og:title" content="SynthSemi - Chip Design, Software & Digital Marketing" />
+        <meta property="og:description" content="One partner across silicon, software and digital growth — VLSI/ASIC chip design, custom software solutions and digital marketing." />
         <meta property="og:type" content="website" />
         <meta property="og:url" content="https://synthsemi.com" />
-        
+
         {/* Twitter Card */}
         <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="SynthSemi - ASIC IP and Design Services" />
-        <meta name="twitter:description" content="Leading semiconductor design services company" />
+        <meta name="twitter:title" content="SynthSemi - Chip Design, Software & Digital Marketing" />
+        <meta name="twitter:description" content="Engineering from silicon to screen — chip design, software solutions and digital marketing." />
       </Helmet>
       
       <div className="app">
